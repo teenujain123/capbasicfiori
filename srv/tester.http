@@ -1,0 +1,77 @@
+GET http://localhost:4004/odata/v4/Catalogservice
+
+###
+GET http://localhost:4004/odata/v4/Catalogservice/CProductValueView 
+
+###
+GET http://localhost:4004/odata/v4/Catalogservice/$metadata
+
+###
+GET http://localhost:4004/odata/v4/Catalogservice/CProductValueView?$top=2
+
+###
+GET   http://localhost:4004/odata/v4/Catalogservice/EmployeeSet
+
+###
+POST   http://localhost:4004/odata/v4/Catalogservice/EmployeeSet
+Content-Type: application/json
+
+     {
+      "ID": "02BD2137-0890-1EEA-A6C2-BB55C197A7C7",
+      "nameFirst": "Teenu",
+      "nameMiddle": "Paul",
+      "nameLast": "Dash",
+      "nameInitials": null,
+      "sex": "M",
+      "language": "E",
+      "phoneNumber": null,
+      "email": "john.dash@itelo.info",
+      "loginName": "DASHJ",
+      "currency_code": "USD",
+      "salaryAmount": 72691,
+      "accountNumber": "5544332211",
+      "bankId": "12100035",
+      "bankName": "My Bank of San Francisco"
+    }
+
+###
+PATCH   http://localhost:4004/odata/v4/Catalogservice/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C197A7C7
+Content-Type: application/json
+
+     {
+      "salaryAmount" : 100020,
+      "email": "teenu.jain@gmail.com"
+      
+    }
+
+###
+GET   http://localhost:4004/odata/v4/Catalogservice/POs  
+
+###
+GET   http://localhost:4004/odata/v4/Catalogservice/POs/74867AD200E41EDBA5D8B0C98DC28052
+
+
+###
+//get Main entity and relavent linked entity
+GET   http://localhost:4004/odata/v4/Catalogservice/POs/74867AD200E41EDBA5D8B0C98DC28052?$expand=items
+
+###
+GET   http://localhost:4004/odata/v4/Catalogservice/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19787FB
+
+###
+POST http://localhost:4004/odata/v4/Catalogservice/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19787FB/Catalogservice.boostedEmpSet
+Content-Type: application/json
+
+     { }
+###
+GET   http://localhost:4004/odata/v4/MyService/readEmployee/02BD2137-0890-1EEA-A6C2-BB55C197A7FB
+
+###
+// update custom entity
+
+PATCH http://localhost:4004/odata/v4/MyService/updateEmployee/02BD2137-0890-1EEA-A6C2-BB55C197A7FB
+Content-Type: application/json
+
+{
+     "nameFirst":"Teenu"
+}
